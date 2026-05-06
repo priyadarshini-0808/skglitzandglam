@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | SK Glitz & Glam</title>
+    <meta name="description" content="SK Glitz & Glam is launching soon. Stay tuned for premium Maggam work, computer embroidery, and a curated saree collection.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--color-cream);
+            overflow-x: hidden;
+        }
+
+        .coming-soon-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(200, 90, 135, 0.08), transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(201, 169, 110, 0.1), transparent 50%),
+                linear-gradient(135deg, rgba(242, 212, 227, 0.6), rgba(252, 241, 245, 0.95));
+            overflow: hidden;
+        }
+
+        /* Decorative floating orbs */
+        .coming-soon-wrapper::before,
+        .coming-soon-wrapper::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatOrb 8s ease-in-out infinite;
+        }
+
+        .coming-soon-wrapper::before {
+            width: 300px;
+            height: 300px;
+            top: -80px;
+            right: -60px;
+            background: radial-gradient(circle, rgba(200, 90, 135, 0.12), transparent 70%);
+            animation-delay: 0s;
+        }
+
+        .coming-soon-wrapper::after {
+            width: 400px;
+            height: 400px;
+            bottom: -120px;
+            left: -100px;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.1), transparent 70%);
+            animation-delay: -4s;
+        }
+
+        @keyframes floatOrb {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .coming-soon-content {
+            text-align: center;
+            max-width: 700px;
+            width: 100%;
+            padding: 2rem;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .coming-soon-logo {
+            margin-bottom: 2.5rem;
+            background: transparent;
+        }
+
+        .coming-soon-logo img {
+            height: 100px;
+            max-width: min(480px, 80vw);
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            filter: brightness(1.3) contrast(1.1) saturate(1.4);
+        }
+
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--color-plum), var(--color-rose));
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(200, 90, 135, 0.25); }
+            50% { box-shadow: 0 0 0 15px rgba(200, 90, 135, 0); }
+        }
+
+        .coming-soon-content h1 {
+            font-size: 3.8rem;
+            color: var(--color-plum-ink);
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .coming-soon-content h1 span {
+            display: block;
+            background: linear-gradient(135deg, var(--color-plum), var(--color-rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .coming-soon-tagline {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--color-rose);
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon-description {
+            font-size: 1.05rem;
+            color: var(--color-plum-ink);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Divider ornament */
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .ornament-divider .line {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+        }
+
+        .ornament-divider .diamond {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-gold);
+            transform: rotate(45deg);
+        }
+
+        /* Social links */
+        .coming-soon-socials {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .coming-soon-socials a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            color: white;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-socials a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .social-instagram {
+            background: radial-gradient(circle at 30% 30%, #feda75, #d62976 45%, #962fbf 75%, #4f5bd5);
+        }
+
+        .social-whatsapp {
+            background-color: #25d366;
+        }
+
+        .social-phone {
+            background: linear-gradient(135deg, var(--color-plum), var(--color-rose));
+        }
+
+        .coming-soon-socials a:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 8px 25px rgba(139, 42, 87, 0.25);
+            color: white;
+        }
+
+        .coming-soon-contact {
+            font-size: 0.95rem;
+            color: var(--color-plum);
+        }
+
+        .coming-soon-contact a {
+            color: var(--color-rose);
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .coming-soon-contact a:hover {
+            border-bottom-color: var(--color-rose);
+        }
+
+        /* Animated dots */
+        .dots-animation {
+            display: inline-flex;
+            gap: 6px;
+            margin-left: 4px;
+        }
+
+        .dots-animation span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--color-rose);
+            animation: dotBounce 1.4s ease-in-out infinite;
+        }
+
+        .dots-animation span:nth-child(2) { animation-delay: 0.2s; }
+        .dots-animation span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotBounce {
+            0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+            40% { transform: translateY(-8px); opacity: 1; }
+        }
+
+        /* Footer override for coming soon page */
+        .coming-soon-footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            background-color: var(--color-plum-ink);
+            color: var(--color-blush);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .coming-soon-content h1 {
+                font-size: 2.6rem;
+            }
+
+            .coming-soon-tagline {
+                font-size: 1.15rem;
+            }
+
+            .coming-soon-logo img {
+                height: 78px;
+            }
+
+            .coming-soon-description {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .coming-soon-content h1 {
+                font-size: 2.1rem;
+            }
+
+            .coming-soon-tagline {
+                font-size: 1rem;
+            }
+
+            .coming-soon-socials a {
+                width: 46px;
+                height: 46px;
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="coming-soon-wrapper">
+        <div class="coming-soon-content">
+            <div class="coming-soon-logo">
+                <img src="assets/logo-sk-glitz-glam-final.png" alt="SK Glitz & Glam Logo">
+            </div>
+
+            <div class="coming-soon-badge">
+                Launching Soon
+                <div class="dots-animation">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <h1>
+                Something Beautiful is
+                <span>Coming Soon</span>
+            </h1>
+
+            <p class="coming-soon-tagline">The Boutique for Your Grace & Glamour</p>
+
+            <div class="ornament-divider">
+                <div class="line"></div>
+                <div class="diamond"></div>
+                <div class="line"></div>
+            </div>
+
+            <p class="coming-soon-description">
+                We're crafting a stunning new experience for you. SK Glitz & Glam is bringing 
+                signature Maggam work, advanced computer embroidery, and a curated saree 
+                collection — all under one beautiful roof in Narsingi, Hyderabad.
+            </p>
+
+            <div class="coming-soon-socials">
+                <a href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="social-instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/917875554847?text=Hi!%20I'm%20interested%20in%20your%20boutique." target="_blank" class="social-whatsapp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:+917875554847" class="social-phone" aria-label="Call Us">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+
+            <p class="coming-soon-contact">
+                Meanwhile, reach us at <a href="tel:+917875554847">+91 78755 54847</a> 
+                or <a href="tel:+917416074847">+91 74160 74847</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="coming-soon-footer">
+        <p>&copy; 2026 SK Glitz & Glam. All rights reserved.</p>
+    </div>
+
+</body>
+</html>

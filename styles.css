@@ -226,7 +226,7 @@ section {
   transform: translate(-50%, -50%);
   width: min(85vw, 960px);
   height: min(85vh, 720px);
-  background-image: url('assets/hero-dupatta-clean.png');
+  background-image: url('assets/poster.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

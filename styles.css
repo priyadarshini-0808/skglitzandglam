@@ -100,18 +100,17 @@ img {
   color: var(--color-cream);
 }
 
-/* Header & Nav */
+/* Header & Nav (Luxury Boutique Static Compact Design) */
 header {
-  background: linear-gradient(135deg, rgba(252, 241, 245, 0.98) 0%, rgba(242, 212, 227, 0.98) 100%);
-  backdrop-filter: blur(10px);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid var(--color-blush);
-  padding: 0.8rem 0;
-  transition: var(--transition);
-  box-shadow: 0 2px 8px rgba(200, 90, 135, 0.1);
+  isolation: isolate; /* Crucial: Isolates blending so mix-blend-mode on the logo blends ONLY with the header background and doesn't leak into the page content behind it */
+  background-color: var(--color-cream); /* Solid soft blush/pale pink background permanently */
+  border-bottom: 1px solid rgba(242, 212, 227, 0.45);
+  padding: 0.5rem 0; /* Reduced padding for compact look */
+  box-shadow: 0 4px 15px rgba(139, 42, 87, 0.05); /* Permanent elegant shadow */
 }
 
 .nav-container {
@@ -120,66 +119,72 @@ header {
   align-items: center;
 }
 
+/* Logo - Blended seamlessly with the header */
 .logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  /* Light hue backplate to blend with the fixed header banner */
-  background: linear-gradient(135deg, rgba(252, 241, 245, 0.85) 0%, rgba(242, 212, 227, 0.72) 35%, rgba(200, 90, 135, 0.22) 100%);
-  border-radius: 18px;
-  padding: 0.45rem 0.65rem;
-  border: 1px solid rgba(200, 90, 135, 0.25);
-
-  /* Adds a stronger “pop” behind the logo */
-  box-shadow:
-    0 10px 30px rgba(200, 90, 135, 0.18),
-    0 0 0 1px rgba(242, 212, 227, 0.35) inset;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  opacity: 1 !important; /* Always fully visible */
 }
-
 
 .logo img {
-  height: 110px;
-  max-width: min(520px, 58vw);
+  height: 65px; /* Compact height for premium luxury feel */
+  max-width: min(450px, 55vw);
   width: auto;
   object-fit: contain;
-  filter: saturate(1.6) contrast(1.05);
-  /* Ensure the logo graphic itself stays transparent; the backplate is on .logo */
-  background: none;
-  border-radius: 0;
-  padding: 0;
-  transition: var(--transition);
+  mix-blend-mode: multiply; /* Blends logo image background with header */
+  transition: transform 0.3s ease;
+  opacity: 1 !important; /* Always fully visible */
 }
-
 
 .logo img:hover {
-  filter: saturate(1.9) contrast(1.07);
-  transform: scale(1.06);
+  transform: scale(1.03);
+  opacity: 1 !important;
 }
 
+/* Nav Links & Typography */
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.6rem; /* Slightly reduced gap between items for a cleaner, compact look */
   list-style: none;
 }
 
 .nav-links a {
-  font-weight: 500;
-  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 700; /* Bold/premium appearance */
+  font-size: 0.9rem; /* Slightly smaller size for luxury minimal feel */
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-plum-ink); /* Permanently dark mauve/deep plum text color */
   position: relative;
+  transition: color 0.3s ease;
 }
 
+/* Individual link hover & active state */
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-rose) !important; /* Elegant rose highlight */
+}
+
+/* Smooth Hover Underline Animation */
 .nav-links a::after {
   content: '';
   position: absolute;
   width: 0;
-  height: 1px;
-  bottom: -4px;
+  height: 2px;
+  bottom: -6px;
   left: 0;
   background-color: var(--color-rose);
-  transition: var(--transition);
+  transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after, .nav-links a.active::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
@@ -704,21 +709,24 @@ footer {
 
 @media (max-width: 768px) {
   .logo {
-    border-radius: 12px;
-    padding: 0.25rem 0.4rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
   }
 
   .logo img {
-    height: 95px;
+    height: 50px;
     max-width: 300px;
-    filter: brightness(1.85) contrast(1.3) saturate(1.9) drop-shadow(0 4px 8px rgba(200, 90, 135, 0.2));
+    mix-blend-mode: multiply;
   }
 
 
   .nav-links {
     position: fixed;
     right: -100%;
-    top: 70px;
+    top: 64px;
     flex-direction: column;
     background-color: var(--color-cream);
     width: 100%;
@@ -726,6 +734,7 @@ footer {
     transition: 0.3s;
     box-shadow: 0 10px 15px rgba(0,0,0,0.05);
     padding: 2rem 0;
+    gap: 1.5rem;
   }
   
   .nav-links.active {
@@ -778,4 +787,93 @@ footer {
   }
   
   .section-title { font-size: 2rem; }
+}
+
+/* ─────────────────────────────────────────────────────────
+   LUXURY FLOATING ACTION BUTTONS
+   Stacked vertically · Bottom-right corner · Fixed position
+   Inspired by the subtle Ritu Kumar floating icon style
+   ───────────────────────────────────────────────────────── */
+
+/* Wrapper: stacks all three buttons in a vertical column */
+.floating-actions {
+  position: fixed;
+  bottom: 26px;
+  right: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 9999;
+}
+
+/* Base style shared by all three buttons */
+.fab-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.25rem;          /* Icon size */
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(90, 30, 60, 0.18);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease;
+  /* Subtle entry animation */
+  animation: fabFadeIn 0.6s ease both;
+}
+
+/* Staggered entry delay per button */
+.fab-btn:nth-child(1) { animation-delay: 0.1s; }
+.fab-btn:nth-child(2) { animation-delay: 0.22s; }
+.fab-btn:nth-child(3) { animation-delay: 0.34s; }
+
+@keyframes fabFadeIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* Hover: slight scale + deeper shadow — no color flash */
+.fab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 7px 20px rgba(90, 30, 60, 0.28);
+}
+
+/* ── Button 1: Instagram — dusty rose / blush ── */
+.fab-instagram {
+  background-color: #c4748c;   /* Dusty rose-mauve */
+}
+.fab-instagram:hover {
+  background-color: #b55f79;   /* Slightly richer wine on hover */
+}
+
+/* ── Button 2: WhatsApp — soft sage-green (muted, no neon) ── */
+.fab-whatsapp {
+  background-color: #7aaa8f;   /* Muted sage green — refined, not bright */
+}
+.fab-whatsapp:hover {
+  background-color: #64957a;
+}
+
+/* ── Button 3: Location/Map — soft mauve / muted plum ── */
+.fab-location {
+  background-color: #9e7d94;   /* Muted plum-mauve */
+}
+.fab-location:hover {
+  background-color: #87668c;   /* Deeper wine-plum on hover */
+}
+
+/* Mobile: slightly smaller to avoid crowding small screens */
+@media (max-width: 480px) {
+  .floating-actions {
+    bottom: 18px;
+    right: 14px;
+    gap: 11px;
+  }
+  .fab-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1.1rem;
+  }
 }

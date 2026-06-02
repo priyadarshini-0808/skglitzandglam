@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Glitz & Glam | The Boutique for Your Grace & Glamour</title>
+    <meta name="description" content="Premium boutique in Narsingi, Hyderabad specializing in signature Maggam work, advanced computer embroidery, and a curated saree collection.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ───────────────────── HERO VIDEO OVERRIDES ───────────────────── */
+        
+        .hero {
+            position: relative !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            overflow: hidden !important;
+            padding-top: 130px !important; /* Proper top padding to push hero content below the compact fixed navbar */
+            background: var(--color-plum-ink) !important;
+        }
+
+        .hero::after {
+            display: none !important; /* Hide default static poster background */
+        }
+
+        .hero-video {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            z-index: 0 !important;
+            filter: saturate(1.15) brightness(0.75) !important;
+        }
+
+        .hero-overlay {
+            position: absolute !important;
+            inset: 0 !important;
+            z-index: 1 !important;
+            background:
+                linear-gradient(180deg,
+                    rgba(61, 31, 58, 0.65) 0%,
+                    rgba(61, 31, 58, 0.45) 40%,
+                    rgba(61, 31, 58, 0.75) 100%),
+                radial-gradient(ellipse at 50% 60%, rgba(200, 90, 135, 0.2) 0%, transparent 75%) !important;
+        }
+
+        .hero-content {
+            position: relative !important;
+            z-index: 2 !important;
+            max-width: 850px !important;
+            color: var(--color-cream) !important;
+            text-align: center !important;
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel Decorative', var(--font-heading), serif !important;
+            font-size: clamp(2rem, 5.5vw, 3.8rem) !important;
+            font-weight: 700 !important;
+            line-height: 1.15 !important;
+            margin-bottom: 1.5rem !important;
+            background: linear-gradient(135deg, var(--color-blush) 0%, var(--color-rose) 40%, var(--color-gold) 75%, var(--color-blush) 100%) !important;
+            background-size: 200% auto !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            animation: shimmerText 4s linear infinite !important;
+            text-shadow: none !important;
+        }
+
+        .hero p {
+            font-family: 'Cormorant Garamond', serif !important;
+            font-size: clamp(1.1rem, 2.5vw, 1.55rem) !important;
+            font-style: italic !important;
+            font-weight: 500 !important;
+            color: var(--color-blush) !important;
+            letter-spacing: 0.05em !important;
+            margin-bottom: 0 !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        @keyframes shimmerText {
+            0%   { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 95px !important; /* Pushes content below the mobile compact fixed navbar */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+      LUXURY BOUTIQUE HEADER (Glitz & Glam Custom Design - Compact Static Version)
+      - Permanently uses the solid soft blush/pale pink background of the brand logo to make the transition seamless and border-free.
+      - Fixed/sticky layout at the top with a reduced, compact height and a permanent elegant soft shadow.
+      - "isolation: isolate" ensures the logo's "mix-blend-mode: multiply" blends with the header background color without leaking into content behind it.
+    -->
+    <header>
+        <div class="container nav-container">
+            <a href="javascript:void(0)" class="logo"><img src="assets/sk-logo-vfinal.png" alt="SK Glitz & Glam Logo"></a>
+            <div class="mobile-toggle"><i class="fas fa-bars"></i></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="javascript:void(0)" class="active">Home</a></li>
+                    <li><a href="javascript:void(0)">Maggam Work</a></li>
+                    <li><a href="javascript:void(0)">Computer Embroidery</a></li>
+                    <li><a href="javascript:void(0)">Sarees</a></li>
+                    <li><a href="javascript:void(0)">Gallery</a></li>
+                    <li><a href="javascript:void(0)">About</a></li>
+                    <li><a href="javascript:void(0)">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <video class="hero-video" poster="assets/poster.png" autoplay muted loop playsinline preload="auto">
+            <source src="assets/banner-video.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>The Boutique for Your Grace & Glamour</h1>
+            <p>Signature Muggam Work &bull; Advanced Computer Embroidery &bull; Curated Saree Collection</p>
+        </div>
+    </section>
+
+    <section class="brand-story">
+        <div class="container">
+            <div class="story-card fade-in">
+                <h2 class="section-title text-center">Welcome to SK Glitz and Glam</h2>
+                <p>Welcome to SK Glitz and Glam, where elegance blends seamlessly with tradition. Founded by Kumarapu Sridevi, whose passion for fashion began with childhood sketches and later evolved through formal training at INIFD Pune, our boutique is known for bespoke designs, detailed handwork, and custom blouses worn even by celebrities.
+
+We prioritize understanding each client’s unique style and preferences, offering personalized services to craft outfits that truly resonate. Alongside our custom creations, we present a thoughtfully curated collection of sarees and apparel for the entire family. To make styling effortless for everyone, we also provide ready-to-wear sarees—ensuring a flawless drape with ease and confidence.
+</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container text-center">
+        <h2 class="section-title fade-in">Our Craftsmanship</h2>
+        <p class="section-subtitle fade-in">Where tradition meets contemporary elegance</p>
+        
+        <div class="featured-categories fade-in">
+            <a href="javascript:void(0)" class="category-card home-category-card" data-title="Maggam Work" data-subtitle="Signature Hand Embroidery" data-description="Discover handcrafted Maggam work blouses with rich zari, beadwork, cutwork, and bridal detailing created for elegant occasions." data-cta="Explore Maggam Work">
+                <img src="assets/home-maggam-work.png" alt="Maggam Work blouse on mannequin">
+                <div class="category-overlay">
+                    <h3>Maggam Work</h3>
+                    <p>Signature Hand Embroidery</p>
+                </div>
+            </a>
+            
+            <a href="javascript:void(0)" class="category-card home-category-card" data-title="Computer Embroidery" data-subtitle="Advanced Machine Designs" data-description="Explore precision embroidery styles with clean motifs, elegant necklines, and boutique-ready blouse designs finished with modern detailing." data-cta="Explore Computer Embroidery">
+                <img src="assets/home-computer-embroidery.png" alt="Computer embroidery blouse on mannequin">
+                <div class="category-overlay">
+                    <h3>Computer Embroidery</h3>
+                    <p>Advanced Machine Designs</p>
+                </div>
+            </a>
+
+            <a href="javascript:void(0)" class="category-card home-category-card" data-title="Saree Collection" data-subtitle="Tradition to Trend" data-description="Browse sarees curated for weddings, celebrations, and everyday grace, including ready-to-wear drapes and statement festive styles." data-cta="Explore Sarees">
+                <img src="assets/home-saree-collection.png" alt="Saree collection on mannequin">
+                <div class="category-overlay">
+                    <h3>Saree Collection</h3>
+                    <p>Tradition to Trend</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section style="background-color: var(--color-blush); padding: 4rem 0;">
+        <div class="container text-center fade-in">
+            <h2 class="section-title">Follow our Journey</h2>
+            <p class="section-subtitle">@sk.glitznglam</p>
+            
+            <div class="instagram-strip">
+                <a href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-post">
+                    <img src="assets/maggam-rose-gold-beadwork.png" alt="Instagram showcase of rose gold beadwork blouse">
+                    <div class="ig-overlay"><i class="fab fa-instagram"></i></div>
+                </a>
+                <a href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-post">
+                    <img src="assets/computer-floral-precision.png" alt="Instagram showcase of floral precision blouse">
+                    <div class="ig-overlay"><i class="fab fa-instagram"></i></div>
+                </a>
+                <a href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-post">
+                    <img src="assets/saree-floral-organza.png" alt="Instagram showcase of floral organza saree">
+                    <div class="ig-overlay"><i class="fab fa-instagram"></i></div>
+                </a>
+                <a href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-post">
+                    <img src="assets/maggam-peacock-motif.png" alt="Instagram showcase of peacock motif maggam blouse">
+                    <div class="ig-overlay"><i class="fab fa-instagram"></i></div>
+                </a>
+                <a href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-post">
+                    <img src="assets/computer-intricate-neckline.png" alt="Instagram showcase of intricate neckline embroidery">
+                    <div class="ig-overlay"><i class="fab fa-instagram"></i></div>
+                </a>
+                <a href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="ig-post">
+                    <img src="assets/saree-rose-gold-georgette.png" alt="Instagram showcase of rose gold georgette saree">
+                    <div class="ig-overlay"><i class="fab fa-instagram"></i></div>
+                </a>
+            </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h4>SK Glitz &amp; Glam</h4>
+                <p>The Boutique for Your Grace &amp; Glamour.</p>
+                <p>Designed by Kumarapu Sridevi</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> +91 78755 54847</p>
+                <p><i class="fas fa-phone"></i> +91 74160 74847</p>
+                <p><i class="fas fa-map-marker-alt"></i> Narsingi, Hyderabad</p>
+                <p><i class="fab fa-instagram"></i> @sk.glitznglam</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SK Glitz &amp; Glam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="modal" id="home-category-modal">
+        <div class="modal-content modal-content-scrollable">
+            <span class="close-modal" id="home-close-modal">&times;</span>
+            <img src="" alt="Category preview" id="home-modal-img">
+            <h3 id="home-modal-title" style="margin-bottom: 0.5rem; color: var(--color-plum);"></h3>
+            <p id="home-modal-subtitle" class="section-subtitle" style="margin-bottom: 1rem;"></p>
+            <p id="home-modal-description" style="text-align: center; margin-bottom: 1.5rem;"></p>
+            <a href="#" class="btn" id="home-modal-link" target="_self">Explore</a>
+        </div>
+    </div>
+
+    <!-- ─────────────────────────────────────────────────────────
+         LUXURY FLOATING ACTION BUTTONS
+         Stacked vertically · Fixed bottom-right · 52×52px each
+         ───────────────────────────────────────────────────────── -->
+    <div class="floating-actions" aria-label="Quick contact options">
+
+        <!-- Button 1: Instagram -->
+        <a  href="https://www.instagram.com/sk.glitznglam?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            class="fab-btn fab-instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit SK Glitz & Glam on Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <!-- Button 2: WhatsApp -->
+        <a  href="https://wa.me/917875554847?text=Hi!%20I'm%20interested%20in%20your%20boutique."
+            class="fab-btn fab-whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat with us on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Button 3: Location — opens exact Google Maps pin -->
+        <a  href="https://www.google.com/maps/place/Narsingi,+Hyderabad,+Narsingi,+Telangana/@17.3881541,78.3463824,15z/data=!3m1!4b1!4m6!3m5!1s0x3bcb94441108a247:0x38289e4326f13333!8m2!3d17.3876025!4d78.3572062!16s%2Fg%2F11rd_wzz1r?hl=en&entry=ttu&g_ep=EgoyMDI2MDUyMC4wIKXMDSoASAFQAw%3D%3D"
+            class="fab-btn fab-location"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Find us on Google Maps — Narsingi, Hyderabad">
+            <i class="fas fa-map-marker-alt"></i>
+        </a>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

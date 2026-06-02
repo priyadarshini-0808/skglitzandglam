@@ -37,15 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Header scroll effect
     const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            header.style.padding = '0.5rem 0';
-        } else {
-            header.style.boxShadow = 'none';
-            header.style.padding = '1rem 0';
-        }
-    });
+    if (header) {
+        const toggleScrolled = () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+        window.addEventListener('scroll', toggleScrolled);
+        toggleScrolled();
+    }
 
     // Lightbox Functionality
     const modal = document.getElementById('lightbox-modal');

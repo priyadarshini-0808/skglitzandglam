@@ -61,14 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
         galleryItems.forEach(item => {
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
-                const title = item.querySelector('h4').innerText;
+                const h4Element = item.querySelector('h4');
+                const title = h4Element ? h4Element.innerText : '';
                 
                 modalImg.src = img.src;
-                modalTitle.innerText = title;
+                if (modalTitle) {
+                    modalTitle.innerText = title;
+                    modalTitle.style.display = title ? 'block' : 'none';
+                }
                 
                 // Set WhatsApp message
-                const pageName = document.title.split('-')[0].trim();
-                const message = `Hi! I'm interested in the ${title} from the ${pageName} collection.`;
+                const docTitle = document.title;
+                const pageName = docTitle.includes('|') ? docTitle.split('|')[0].trim() : (docTitle.includes('-') ? docTitle.split('-')[0].trim() : docTitle);
+                const message = title 
+                    ? `Hi! I'm interested in the ${title} from the ${pageName} collection.`
+                    : `Hi! I'm interested in this design from the ${pageName} collection.`;
                 whatsappBtn.href = `https://wa.me/917875554847?text=${encodeURIComponent(message)}`;
                 
                 modal.classList.add('show');
